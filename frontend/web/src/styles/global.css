@@ -1,0 +1,81 @@
+.navbar-custom {
+  background-color: #90E6FF !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .nav-link,
+.navbar-custom .navbar-text {
+  color: #2c3e50 !important;
+}
+
+.navbar-custom .btn-outline-primary {
+  border-color: #2c3e50;
+  color: #2c3e50;
+}
+
+.navbar-custom .btn-outline-primary:hover {
+  background-color: #2c3e50;
+  color: white;
+}
+
+.navbar-custom .btn-outline-danger {
+  border-color: #dc3545;
+  color: #dc3545;
+}
+
+.navbar-custom .btn-outline-danger:hover {
+  background-color: #dc3545;
+  color: white;
+}
+
+.navbar-nav .nav-item {
+  margin-right: 10px;
+}
+
+.navbar-nav .btn {
+  margin-left: 5px;
+}
+
+.hero-sky {
+  background: linear-gradient(135deg, #87CEEB 0%, #E0F7FF 100%) !important;
+  border: 2px solid #5DADE2;
+}
+
+.container-grass {
+  background-color: #A8E6A3 !important;
+  border: 2px solid #58D68D;
+}
+
+.container-cloud {
+  background-color: #EBF5FB !important;
+  border: 2px solid #AED6F1;
+}
+
+.footer-custom {
+  background-color: #58ff58 !important;
+  border-top: 3px solid #2ECC71;
+}
+
+body {
+  padding-top: 80px;
+  background-color: #e1f8ff; 
+}
+
+/* Para telas menores */
+@media (max-width: 768px) {
+  body {
+    padding-top: 70px;
+  }
+  
+  .navbar-nav .nav-item {
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
+}
+
+
+
+
+
+
