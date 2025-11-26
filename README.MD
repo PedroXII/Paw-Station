@@ -1,102 +1,105 @@
 # 🐾 PawStation - Sistema de Adoção de Animais
 
-## 📋 Objetivo do Projeto
+## 1. 📋 Título e Descrição do Projeto
 
-O **PawStation** é uma plataforma web desenvolvida para facilitar o processo de adoção de animais, conectando animais abandonados a lares amorosos. O sistema visa modernizar e digitalizar o processo de adoção, tornando-o mais acessível, transparente e eficiente para todas as partes envolvidas.
+**Nome do Sistema**: PawStation  
+**Breve Descrição**: Plataforma web para adoção de animais que conecta animais abandonados a lares amorosos de forma segura e eficiente.  
+**Problema Solucionado**: Digitaliza e moderniza o processo de adoção animal, tornando-o mais acessível, transparente e organizado para protetores, abrigos e adotantes.
 
-**Vinculação com ODS 11**: O projeto contribui para o Objetivo de Desenvolvimento Sustentável 11 - "Cidades e Comunidades Sustentáveis", promovendo o bem-estar animal e a conscientização sobre posse responsável, elementos essenciais para comunidades mais harmoniosas e sustentáveis.
+## 2. 🚀 Funcionalidades Implementadas
 
-## 🚀 Funcionalidades Implementadas
+### ✅ Status: Completo
 
-### ✅ Página Inicial (Home)
-- Apresentação pública da plataforma
-- Estatísticas em tempo real (animais disponíveis, adotados, adoções do mês)
-- Lista resumida de animais disponíveis para adoção
-- Explicação do processo de adoção em 3 etapas simples
-- Design responsivo e acessível
+**Página Inicial (Home)**
+- [x] Apresentação pública da plataforma
+- [x] Estatísticas em tempo real
+- [x] Lista resumida de animais disponíveis
+- [x] Design responsivo e acessível
 
-### ✅ Sistema de Autenticação
-- **Registro de novos usuários** (tipo "adotante" por padrão)
-- **Login seguro** com Firebase Authentication
-- **Proteção de rotas** baseada em tipo de usuário
-- **Logout** com confirmação
+**Sistema de Autenticação**
+- [x] Registro de novos usuários (tipo "adotante")
+- [x] Login seguro com Firebase Authentication
+- [x] Proteção de rotas baseada em tipo de usuário
+- [x] Logout com confirmação
 
-### ✅ Página de Animais
-- **Acesso público** para visualização de animais
-- **Sistema de filtros** por espécie, status e busca por nome
-- **Visualização detalhada** de cada animal
-- **Solicitação de adoção** (apenas para usuários logados)
-- **Controle de solicitações** (máximo 1 solicitação pendente por usuário)
+**Página de Animais**
+- [x] Acesso público para visualização
+- [x] Sistema de filtros (espécie, status, busca)
+- [x] Visualização detalhada de cada animal
+- [x] Solicitação de adoção (apenas para logados)
+- [x] Controle de solicitações (1 pendente por usuário)
 
-### ✅ Painel Administrativo
-- **Cadastro de novos animais** com formulário completo
-- **Gestão de solicitações de adoção** pendentes
-- **Aprovação/rejeição** de adoções com justificativa
-- **Visualização de dados do adotante** (nome, e-mail, telefone)
-- **Prevenção de auto-adoção** por administradores
+**Painel Administrativo**
+- [x] Cadastro de novos animais
+- [x] Gestão de solicitações de adoção
+- [x] Aprovação/rejeição com justificativa
+- [x] Visualização de dados do adotante
+- [x] Prevenção de auto-adoção por administradores
 
-### ✅ Funcionalidades de Segurança
-- Proteção de rotas administrativas
-- Validação de formulários no frontend e backend
-- Controle de permissões por tipo de usuário
-- Prevenção de solicitações duplicadas
+## 3. 🛠 Tecnologias Utilizadas
 
-## 🛠 Tecnologias Utilizadas
+### Linguagens de Programação
+- JavaScript (ES6+)
+- JSX
 
-### Frontend
-- **React 18.3.1** - Biblioteca principal
-- **React Router DOM 6.30.2** - Roteamento
-- **Bootstrap 5.3.8** - Framework de UI
-- **React Icons 5.5.0** - Ícones
-- **Axios 1.13.2** - Requisições HTTP
+### Frameworks e Bibliotecas
+- React 18.3.1
+- React Router DOM 6.30.2
+- Bootstrap 5.3.8
+- React Icons 5.5.0
 
-### Backend & Banco de Dados
-- **Firebase Authentication** - Autenticação de usuários
-- **Firestore Database** - Banco de dados NoSQL
-- **Firebase Security Rules** - Regras de segurança
+### Banco de Dados
+- Firebase Firestore (NoSQL)
+- Firebase Authentication
 
 ### Ferramentas de Desenvolvimento
-- **Create React App** - Ambiente de desenvolvimento
-- **Jest & Testing Library** - Testes unitários
-- **Git & GitHub** - Controle de versão
+- Create React App
+- Jest & Testing Library
+- Git & GitHub
+- Vercel (Deploy)
 
-## 🏗 Arquitetura do Sistema
+## 4. 🏗 Arquitetura do Sistema
 
+### Visão Geral da Arquitetura
+Sistema frontend React com arquitetura baseada em componentes, integrado com serviços Firebase para backend como serviço (BaaS).
+
+### Componentes Principais
 ```
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   HOME          │    │   ANIMALS       │    │   ADMIN         │
-│                 │    │                 │    │                 │
-│ - Pública       │    │ - Pública       │    │ - Privada       │
-│ - Lista resumida│    │ - Lista completa│    │ - Apenas admin  │
-│ - Estatísticas  │◄──►│ - Filtros       │◄──►│ - Gerir adoções │
-│ - Links         │    │ - Adoção*       │    │ - Cadastrar     │
-└─────────────────┘    └─────────────────┘    └─────────────────┘
-         │                      │                      │
-         │                      │                      │
-         └──────────────────────┼──────────────────────┘
-                                │
-                                ▼
-                        ┌─────────────────┐
-                        │    AUTH         │
-                        │                 │
-                        │ - Firebase      │
-                        │ - Login/Registro│
-                        └─────────────────┘
+src/
+├── components/          # Componentes reutilizáveis
+│   ├── Navbar.js       # Navegação principal
+│   ├── Footer.js       # Rodapé
+│   └── ProtectedRoute.js # Controle de acesso
+├── contexts/           # Gerenciamento de estado
+│   └── AuthContext.js  # Contexto de autenticação
+├── pages/              # Páginas da aplicação
+│   ├── Home.js         # Página inicial
+│   ├── Animals.js      # Lista de animais
+│   ├── Login.js        # Autenticação
+│   ├── Register.js     # Registro
+│   └── AdminDashboard.js # Painel administrativo
+└── services/           # Integrações externas
+    └── firebase.js     # Configuração Firebase
 ```
 
-## 📥 Instruções de Instalação e Execução
+### Integrações Realizadas
+- **Firebase Authentication**: Autenticação de usuários
+- **Cloud Firestore**: Armazenamento de dados
+- **React Router**: Navegação single-page application
+
+## 5. 📥 Instruções de Instalação e Execução
 
 ### Pré-requisitos
-- Node.js 16+ instalado
-- Conta no Firebase
-- Git instalado
+- Node.js 16+ 
+- npm ou yarn
+- Conta Firebase
 
 ### Passo a Passo para Instalação
 
 1. **Clone o repositório**
    ```bash
-   git clone https://github.com/PedroXII/paw-station.git
-   cd paw-station/frontend/web
+   git clone https://github.com/seu-usuario/paw-station.git
+   cd paw-station
    ```
 
 2. **Instale as dependências**
@@ -104,112 +107,89 @@ O **PawStation** é uma plataforma web desenvolvida para facilitar o processo de
    npm install
    ```
 
-3. **Configure o Firebase**
-   - Crie um projeto no Firebase Console
-   - Ative Authentication com Email/Password
-   - Crie um banco Firestore
-   - Copie as credenciais para o arquivo `src/firebase.js`
+3. **Configure as variáveis de ambiente**
+   ```bash
+   cp .env.example .env
+   ```
+   Preencha o arquivo `.env` com suas credenciais Firebase:
+   ```
+   REACT_APP_FIREBASE_API_KEY=sua_chave_aqui
+   REACT_APP_FIREBASE_AUTH_DOMAIN=seu_dominio_aqui
+   REACT_APP_FIREBASE_PROJECT_ID=seu_project_id
+   REACT_APP_FIREBASE_STORAGE_BUCKET=seu_storage_bucket
+   REACT_APP_FIREBASE_MESSAGING_SENDER_ID=seu_sender_id
+   REACT_APP_FIREBASE_APP_ID=seu_app_id
+   REACT_APP_FIREBASE_MEASUREMENT_ID=seu_measurement_id
+   ```
 
 4. **Execute a aplicação**
    ```bash
    npm start
    ```
-   A aplicação estará disponível em `http://localhost:3000`
+   Acesse: `http://localhost:3000`
 
-### Configuração do Firebase
-
-Crie o arquivo `src/firebase.js` com:
-
-```javascript
-import { initializeApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore';
-
-const firebaseConfig = {
-  authDomain: "paw-station.firebaseapp.com",
-  projectId: "paw-station",
-  storageBucket: "paw-station.firebasestorage.app",
-};
-
-const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
-export const db = getFirestore(app);
-```
-
-## 🔐 Credenciais de Teste
-
-### Conta de Administrador
-- **Email**: `admin@pawstation.com`
-- **Senha**: `admin123`
-
-### Conta de Usuário Comum
-- **Email**: `user@email.com`
-- **Senha**: `123456`
-
-*Nota: As contas de administrador precisam ser configuradas manualmente no Firestore, alterando o campo `tipo` para `"admin"*
-
-## 🌐 Deploy e Acesso
-
-### Versão em Produção
-**URL**: [https://paw-station.web.app](https://paw-station.web.app)
-
-### Deploy com Firebase Hosting
+### Comandos para Execução
 ```bash
-# Build da aplicação
-npm run build
-
-# Deploy
-firebase deploy
+npm start      # Desenvolvimento
+npm run build  # Build produção
+npm test       # Executar testes
 ```
 
-## 🧪 Testes
+### Configurações Necessárias
+- Projeto Firebase configurado com Authentication (Email/Password) e Firestore
+- Regras de segurança Firestore configuradas
+- Variáveis de ambiente configuradas
 
-### Executar Testes
-```bash
-# Todos os testes
-npm test
+## 6. 🔐 Acesso ao Sistema
 
-# Testes específicos
-npm test -- --testNamePattern="Home"
-```
+### URL de Acesso
+**Produção**: [https://paw-station.vercel.app](https://paw-station.vercel.app)
 
-### Cobertura de Testes
-- ✅ Testes de componentes (Navbar, Login, Home, Animals)
-- ✅ Testes de páginas principais
-- ✅ Testes de contexto de autenticação
-- ✅ Testes de serviços Firebase
+### Credenciais de Teste
+*As credenciais de administrador devem ser configuradas manualmente no Firestore, alterando o campo `tipo` para `"admin"` no documento do usuário.*
 
-## 👥 Validação com Público-Alvo
+## 7. 👥 Validação com Público-Alvo
 
-### Público-Alvo Específico
-O projeto foi validado com:
-- **Protetores de animais independentes** da região
-- **Voluntários de abrigos** locais
-- **Potenciais adotantes** que buscaram animais recentemente
+### Definição Específica do Público-Alvo
+- **Protetores de animais independentes** da região metropolitana
+- **Voluntários de abrigos** de pequeno e médio porte
+- **Potenciais adotantes** que buscam animais para adoção responsável
 
-### Principais Feedbacks Implementados
-- Simplificação do processo de adoção
-- Melhoria na usabilidade mobile
-- Adição de filtros mais intuitivos
-- Informações mais claras sobre o status dos animais
+### Resumo do Processo de Validação
+O sistema foi apresentado para 3 protetores independentes e 1 abrigo organizado, com coleta de feedback sobre usabilidade, fluxo de adoção e funcionalidades administrativas.
 
-## 👨‍💻 Equipe de Desenvolvimento
+### Principais Feedbacks Recebidos
+- **✅ Positivo**: Interface intuitiva e processo de adoção simplificado
+- **🔧 Sugestões**: 
+  - Adicionar mais filtros na busca de animais
+  - Melhorar visualização mobile
+  - Incluir histórico de adoções
 
-**Equipe PawStation** - Projeto desenvolvido para a disciplina de Projeto Aplicado Multiplataforma
+### Ajustes Implementados
+- [x] Sistema de filtros aprimorado (espécie, status, busca)
+- [x] Design responsivo otimizado para mobile
+- [x] Controle de solicitações para evitar duplicidades
+- [x] Proteção contra auto-adoção por administradores
 
-### Contribuições Principais
-- **Desenvolvimento Frontend**: Implementação de todas as interfaces React
-- **Integração Backend**: Conexão com Firebase Auth e Firestore
-- **Design System**: Criação de componentes com Bootstrap
-- **Testes**: Implementação de suite de testes unitários
+## 8. 👨‍💻 Equipe de Desenvolvimento
 
-## 📞 Suporte
+### Membros da Equipe
+- ILANA DAS NEVES BARBOSA - 2326948
+- IONARA DOS SANTOS FERREIRA - 2326251
+- JOAO PEDRO ALMEIDA SANTOS - 2327071
+- LUCAS KAUÃ PORTELA DA SILVA NOGUEIRA - 2323857
+- MARIA VITÓRIA SAMPAIO DA SILVA - 2323856
+- VIVIAN LEIGH TEIXEIRA SALVI - 2313542
 
-Para dúvidas ou problemas com a aplicação:
-1. Verifique a configuração do Firebase
-2. Confirme que todas as dependências foram instaladas
-3. Consulte os logs do console para erros específicos
+### Papéis e Contribuições Principais
+- **Desenvolvimento Frontend**: Implementação de componentes React, roteamento e integração com Firebase
+- **Design de Interface**: Criação da interface com Bootstrap e experiência do usuário
+- **Backend & Segurança**: Configuração do Firebase, regras de segurança e autenticação
+- **Testes & Qualidade**: Implementação de testes unitários e validação de funcionalidades
+- **Documentação**: Elaboração da documentação técnica e do usuário
 
 ---
+
+**Desenvolvido como projeto acadêmico** - 🎓 Disciplina de Projeto Aplicado Multiplataforma
 
 **PawStation** - Conectando animais a lares amorosos 🐕🐈❤️
