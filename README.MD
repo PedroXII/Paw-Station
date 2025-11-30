@@ -58,6 +58,11 @@
 - Git & GitHub
 - Vercel (Deploy)
 
+### Justificativa das Mudanças
+- **Firebase vs PostgreSQL**: Simplificação da infraestrutura para usuários finais
+- **BaaS vs Microsserviços**: Redução de complexidade para MVP
+- **Deploy Simplificado**: Vercel + Firebase = Zero configuração de servidor
+
 ## 4. 🏗 Arquitetura do Sistema
 
 ### Visão Geral da Arquitetura
@@ -98,7 +103,7 @@ src/
 
 1. **Clone o repositório**
    ```bash
-   git clone https://github.com/seu-usuario/paw-station.git
+   git clone https://github.com/PedroXII/paw-station.git
    cd paw-station
    ```
 
@@ -128,11 +133,31 @@ src/
    ```
    Acesse: `http://localhost:3000`
 
-### Comandos para Execução
+### ✅ Testes Automatizados Implementados
+
+#### Status: 28 testes passando com sucesso
+
+#### Tipos de Testes Implementados:
+1. **Testes Unitários** - Validam funções individuais e regras de negócio
+2. **Testes de Integração** - Validam fluxos completos do sistema  
+3. **Testes de Regras de Negócio** - Garantem que as regras do sistema são seguidas
+
+#### Cobertura de Testes:
+- ✅ Regras de adoção (1 solicitação pendente por usuário)
+- ✅ Validações de dados (email, telefone, campos obrigatórios)
+- ✅ Controle de acesso (admin não pode auto-aprovar adoções)
+- ✅ Fluxos completos (processo de adoção do início ao fim)
+- ✅ Validações de negócio (espécies válidas, status permitidos)
+
+#### Tecnologia Utilizada:
+- **Jest**: Framework de testes para JavaScript
+- **Node.js**: Ambiente de execução
+- **100% dos testes passando**: Garantia de qualidade do código
+
+#### Como Executar:
 ```bash
-npm start      # Desenvolvimento
-npm run build  # Build produção
-npm test       # Executar testes
+cd backend
+npm test
 ```
 
 ### Configurações Necessárias
@@ -145,25 +170,8 @@ npm test       # Executar testes
 ### URL de Acesso
 **Produção**: [https://paw-station.vercel.app](https://paw-station.vercel.app)
 
-### Credenciais de Teste
+### Credenciais de Aministrador
 *As credenciais de administrador devem ser configuradas manualmente no Firestore, alterando o campo `tipo` para `"admin"` no documento do usuário.*
-
-## 7. 👥 Validação com Público-Alvo
-
-### Definição Específica do Público-Alvo
-- **Protetores de animais independentes** da região metropolitana
-- **Voluntários de abrigos** de pequeno e médio porte
-- **Potenciais adotantes** que buscam animais para adoção responsável
-
-### Resumo do Processo de Validação
-O sistema foi apresentado para 3 protetores independentes e 1 abrigo organizado, com coleta de feedback sobre usabilidade, fluxo de adoção e funcionalidades administrativas.
-
-### Principais Feedbacks Recebidos
-- **✅ Positivo**: Interface intuitiva e processo de adoção simplificado
-- **🔧 Sugestões**: 
-  - Adicionar mais filtros na busca de animais
-  - Melhorar visualização mobile
-  - Incluir histórico de adoções
 
 ### Ajustes Implementados
 - [x] Sistema de filtros aprimorado (espécie, status, busca)
@@ -171,7 +179,7 @@ O sistema foi apresentado para 3 protetores independentes e 1 abrigo organizado,
 - [x] Controle de solicitações para evitar duplicidades
 - [x] Proteção contra auto-adoção por administradores
 
-## 8. 👨‍💻 Equipe de Desenvolvimento
+## 7. 👨‍💻 Equipe de Desenvolvimento
 
 ### Membros da Equipe
 - ILANA DAS NEVES BARBOSA - 2326948
