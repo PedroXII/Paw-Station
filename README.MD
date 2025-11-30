@@ -179,7 +179,36 @@ npm test
 - [x] Controle de solicitações para evitar duplicidades
 - [x] Proteção contra auto-adoção por administradores
 
-## 7. 👨‍💻 Equipe de Desenvolvimento
+## 7. ✅ Validação com Público-Alvo
+
+### Definição do Público-Alvo
+**Emilia Feitosa** - Protetora de animais independente e funcionária da Coordenadoria de Biodiversidade da Secretaria de Meio Ambiente e Mudança do Clima
+
+### Método de Validação
+- **Data**: Dezembro de 2025
+- **Formato**: Vídeo chamada + Formulário de feedback online
+- **Perfil testado**: Adotante
+
+### Feedback Recebido
+
+#### ✅ Pontos Positivos Destacados
+- **Impressão Geral**: "Positiva"
+- **Atendimento às Expectativas**: "Atendeu"
+- **Navegação**: "Fácil de navegar"
+- **Estrutura de Menus**: "Organizada"
+- **Conteúdo**: "Útil e relevante"
+- **Design**: "Agradável"
+- **Interações**: "Intuitivas e agradáveis"
+- **Clareza das Informações**: "Clara e compreensível"
+- **Recomendação**: "Provavelmente recomendaria"
+- **Satisfação Geral**: ⭐⭐⭐⭐ (4/5 estrelas)
+
+### Evidências
+- Registro de vídeo chamada (validation/evidence/)
+- Formulário de feedback completo (validation/feedback/)
+- Relatório detalhado (validation/validation_report.md)
+
+## 8. 👨‍💻 Equipe de Desenvolvimento
 
 ### Membros da Equipe
 - ILANA DAS NEVES BARBOSA - 2326948
